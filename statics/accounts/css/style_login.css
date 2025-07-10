@@ -1,0 +1,274 @@
+:root {
+    --color-dark: #1E1E1E;        /* Dark Charcoal - Main background */
+    --color-primary: #FF6F3C;     /* Molten Orange - Primary buttons, icons */
+    --color-accent: #D94F37;      /* Ember Red - Hover states, alerts */
+    --color-text-secondary: #757575;  /* Steel Gray - Secondary text */
+    --color-highlight: #FFCB47;   /* Glow Yellow - Highlights */
+    --color-secondary-bg: #2E4057;    /* Ash Blue - Secondary backgrounds */
+    --color-light: #FFFFFF;      /* White - Text on dark */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 111, 60, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(255, 203, 71, 0.1) 0%, transparent 25%);
+}
+
+.login-wrapper {
+    background-color: rgba(30, 30, 30, 0.9);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(117, 117, 117, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.login-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 65%,
+        rgba(255, 111, 60, 0.05) 65%,
+        rgba(255, 111, 60, 0.05) 70%,
+        transparent 70%
+    ),
+    linear-gradient(
+        -45deg,
+        transparent 65%,
+        rgba(255, 203, 71, 0.05) 65%,
+        rgba(255, 203, 71, 0.05) 70%,
+        transparent 70%
+    );
+    z-index: -1;
+    animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.brand-logo {
+    width: 160px;
+    height: 160px;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-light);
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+.brand-name::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-highlight));
+    border-radius: 3px;
+}
+
+h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.tagline {
+    margin: 0 0 2.5rem;
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    font-weight: 500;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-light);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-text-secondary);
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--color-light);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(255, 111, 60, 0.2);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: var(--color-dark);
+    box-shadow: 0 4px 15px rgba(255, 111, 60, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 111, 60, 0.6);
+    background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+}
+
+.btn-google {
+    background: var(--color-light);
+    color: var(--color-dark);
+    border: 1px solid rgba(117, 117, 117, 0.3);
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-google:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.btn-google img {
+    width: 18px;
+    height: 18px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--color-text-secondary);
+    opacity: 0.3;
+}
+
+.divider::before {
+    margin-right: 1rem;
+}
+
+.divider::after {
+    margin-left: 1rem;
+}
+
+.extra-links {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+
+.extra-links a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.extra-links a:hover {
+    color: var(--color-primary);
+}
+
+/* Animation for the forge effect */
+@keyframes forgeGlow {
+    0%, 100% { text-shadow: 0 0 8px rgba(255, 111, 60, 0.5); }
+    50% { text-shadow: 0 0 16px rgba(255, 111, 60, 0.8), 0 0 24px rgba(255, 203, 71, 0.6); }
+}
+
+.forge-effect {
+    animation: forgeGlow 3s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .login-wrapper {
+        padding: 2rem 1.5rem;
+    }
+    
+    .brand-name {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+{% load socialaccount %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFORGE| Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'accounts/css/style_login.css' %}">
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="brand">
+            <img src="{% static 'accounts/images/logo.png' %}" alt="INFORGE Logo" class="brand-logo">
+        </div>
+        <h2>Welcome Back, Blacksmith</h2>
+        <p class="tagline">Forge information into mastery</p>
+
+        <form method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            
+            <div class="form-group">
+                <label for="id_login">{{ form.login.label }}</label>
+                {{ form.login }}
+            </div>
+            
+            <div class="form-group">
+                <label for="id_password">{{ form.password.label }}</label>
+                {{ form.password }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Stoke the Forge</button>
+        </form>
+
+        <div class="divider">or</div>
+
+        <a href="{% provider_login_url 'google' %}" class="btn btn-google">
+            <img src="{% static 'accounts/images/google-logo.svg' %}" alt="Google logo">
+            Continue with Google
+        </a>
+
+        <div class="extra-links">
+            <a href="{% url 'account_reset_password' %}">Forgot your tools?</a>
+            <a href="{% url 'account_signup' %}">Start forging</a>
+        </div>
+    </div>
+
+    <script src="{% static 'accounts/js/style_login.js' %}"></script>
+</body>
+</html>

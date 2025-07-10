@@ -1,0 +1,29 @@
+/* Reutilize o mesmo CSS da página de login ou adicione estilos específicos para signup */
+:root {
+    --color-dark: #1E1E1E;
+    --color-primary: #FF6F3C;
+    --color-accent: #D94F37;
+    --color-text-secondary: #757575;
+    --color-highlight: #FFCB47;
+    --color-secondary-bg: #2E4057;
+    --color-light: #FFFFFF;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.password-requirements {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+.password-requirements ul {
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+/* Adicione outros estilos específicos para signup se necessário */

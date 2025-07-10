@@ -1,0 +1,58 @@
+[project]
+name = "inforge"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=5.2.3",
+    "django-allauth>=65.9.0",
+    "django-environ>=0.12.0",
+    "jwt>=1.4.0",
+    "psycopg2>=2.9.10",
+    "psycopg[binary]>=3.2.9",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.4",
+    "torch>=2.7.1",
+]
+
+
+
+[tool.ruff]
+line-length = 79
+extend-exclude = ['migrations']
+
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+
+
+[tool.ruff.format]
+preview = true
+quote-style = 'single'
+
+[tool.taskipy.tasks]
+# Roda o servidor Django
+run = "uv run manage.py runserver"
+
+# Aplica migrações
+migrate = "uv run manage.py migrate"
+
+# Cria as migrações a partir das alterações nos models
+makemigrations = "uv run manage.py makemigrations"
+
+# Abre o shell do Django
+shell = "uv run manage.py shell"
+
+# Cria superusuário
+superuser = "uv run manage.py createsuperuser"
+
+# Roda os testes (se estiver usando pytest ou unittest)
+test = "uv run manage.py test"
+
+# Reseta o banco (opcional, cuidado!)
+resetdb = "uv run manage.py flush --noinput"
+
+# Checa erros de configuração
+check = "uv run manage.py check"
