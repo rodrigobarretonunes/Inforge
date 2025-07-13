@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
     # Local apps
-    'authcore',
+    'summarizer',
 ]
 
 MIDDLEWARE = [
@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Django Allauth custom behavior
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 ACCOUNT_SIGNUP_REDIRECT_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/manage_profiles/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
 ACCOUNT_LOGIN_ON_SIGNUP = False
 
@@ -124,6 +124,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'statics']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # ========================================
 # DEFAULTS

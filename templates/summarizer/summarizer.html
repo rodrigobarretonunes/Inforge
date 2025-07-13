@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'summarizer/css/style_summarizer.css' %}">
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Summarizer - Gerar Resumo</title>
+</head>
+<body>
+
+  <header>
+    <h1>Gerador de Resumos com IA</h1>
+    <a href="/dashboard/">← Voltar para o Dashboard</a>
+  </header>
+
+  <main>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- ENTRADA: URL ou Arquivo -->
+      <section>
+        <label for="input_or_file"><strong>Digite uma URL ou envie um arquivo (PDF, DOCX ou XLSX):</strong></label><br>
+        <input type="text" name="url_web" id="input_or_file" placeholder="https://exemplo.com/artigo">
+        <br><br>
+        <input type="file" name="uploaded_file" accept=".pdf,.docx,.xlsx">
+      </section>
+
+      <br>
+
+      <!-- PROMPT PERSONALIZADO -->
+      <section>
+        <label for="ia_prompt"><strong>Prompt de Resumo para a IA:</strong></label><br>
+        <textarea name="ia_prompt" id="ia_prompt" rows="5" placeholder="Ex: Resuma em formato de tópicos os principais argumentos..."></textarea>
+      </section>
+
+      <br>
+
+      <!-- NOME DO ARQUIVO -->
+      <section>
+        <label for="nome_arquivo"><strong>Nome do Arquivo de Saída (PDF):</strong></label><br>
+        <input type="text" name="file_name_tag" id="file_name_tag" placeholder="meu_resumo.pdf">
+      </section>
+
+      <br>
+
+      <!-- BARRA DE PROGRESSO (simples) -->
+      <section>
+        <label><strong>Progresso:</strong></label><br>
+        <progress id="progresso" value="0" max="100">0%</progress>
+      </section>
+
+      <br>
+
+      <!-- BOTÃO DE ENVIO -->
+      <section>
+        <button type="submit">Gerar Resumo</button>
+      </section>
+    </form>
+
+    <!-- ÁREA DE DOWNLOAD E VISUALIZAÇÃO DO PDF GERADO -->
+    {% if pdf_url %}
+    <section style="margin-top: 40px; text-align: center;">
+      <h2>Resumo Gerado</h2>
+      <a href="{{ pdf_url }}" download class="btn-download">Baixar PDF</a>
+      <br><br>
+      <iframe src="{{ pdf_url }}" width="90%" height="600px" style="border:1px solid #ccc;"></iframe>
+    </section>
+    {% endif %}
+  </main>
+<script src="{% static 'summarizer/js/script_summarizer.js' %}"></script>
+</body>
+</html>

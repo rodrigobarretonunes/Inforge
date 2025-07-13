@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Plataforma de Estudos</title>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+            <div class="user-profile">
+                <img src="/static/images/user-placeholder.png" alt="Foto do Perfil" width="80">
+                <h2>Nome do Usuário</h2>
+                <p>email@exemplo.com</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="/perfil/editar/">Editar Perfil</a></li>
+                    <li><a href="/perfil/senha/">Alterar Senha</a></li>
+                    <li><a href="/perfil/foto/">Alterar Foto</a></li>
+                    <li><a href="/logout/">Sair</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1>Bem-vindo à sua Plataforma de Estudos</h1>
+                <p>Escolha uma ferramenta para começar</p>
+            </header>
+
+            <section class="tools-grid">
+                
+                <!-- SUMMARIZER -->
+                <div class="tool-card">
+                    <h2>Summarizer</h2>
+                    <p>Resuma páginas web ou PDFs com inteligência artificial.</p>
+                    <a href="/summarizer/">Acessar</a>
+                </div>
+
+                <!-- FLASHCARDS -->
+                <div class="tool-card">
+                    <h2>Flashcards</h2>
+                    <p>Crie, estude e gerencie seus flashcards personalizados.</p>
+                    <a href="/flashcards/">Acessar</a>
+                </div>
+
+                <!-- LEITURA DE PDF -->
+                <div class="tool-card">
+                    <h2>Leitor de PDF</h2>
+                    <p>Abra, leia e navegue pelos seus PDFs diretamente na plataforma.</p>
+                    <a href="/leitor-pdf/">Acessar</a>
+                </div>
+
+                <!-- BIBLIOTECA -->
+                <div class="tool-card">
+                    <h2>Biblioteca</h2>
+                    <p>Acesse todos os PDFs e fichas que você criou e salvou.</p>
+                    <a href="/biblioteca/">Acessar</a>
+                </div>
+
+            </section>
+        </main>
+
+    </div>
+</body>
+</html>

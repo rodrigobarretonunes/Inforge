@@ -1,25 +1,20 @@
-
 # Python
 __pycache__/
 *.py[cod]
+*.sqlite3
 *.log
-
-# Virtual environments
-.venv/
-venv/
 
 # Env & config
 .env
 .env.*
-.python-version
 
-# Django/Database
+# Django
 db.sqlite3
-local_settings.py
 /media/
 staticfiles/
+local_settings.py
 
-# IDEs
+# VSCode / PyCharm
 .vscode/
 .idea/
 
@@ -27,15 +22,9 @@ staticfiles/
 .DS_Store
 Thumbs.db
 
-# Migrations (keep __init__.py only)
+# Migrations (opcional — cuidado!)
 **/migrations/*.py
 !**/migrations/__init__.py
 
-# Node (if using frontend)
+# Node (caso use algum frontend)
 node_modules/
-
-# Ruff/Pyright/other tool caches
-.ruff_cache/
-
-# Lock files (keep only if needed for reproducibility)
-uv.lock

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AuthcoreConfig(AppConfig):
+class DashboardConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'authcore'
+    name = 'dashboard'
